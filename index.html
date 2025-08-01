@@ -101,7 +101,10 @@
     <div class="move-button" onclick="openModal('jab')">Jab</div>
     <div class="move-button" onclick="openModal('cross')">Cross</div>
     <div class="move-button" onclick="openModal('uppercut')">Uppercut</div>
-    <!-- Add more moves here -->
+    <div class="move-button" onclick="openModal('jabCross')">Jab–Cross Combo</div>
+    <div class="move-button" onclick="openModal('leadHook')">Lead Hook</div>
+    <div class="move-button" onclick="openModal('bodyShot')">Body Shot</div>
+    <div class="move-button" onclick="openModal('rollCounter')">Roll + Counter</div>
   </div>
 
   <!-- Modal -->
@@ -142,10 +145,50 @@
         title: "Uppercut",
         gif: "https://media.giphy.com/media/8K0xBd8MG1Gbm/giphy.gif",
         steps: [
-          "Bend knees slightly and drop rear hand.",
-          "Explode upward with rear fist.",
-          "Aim the punch at an upward angle.",
-          "Return to guard quickly."
+          "Drop slightly with knees bent.",
+          "Drive upward using hips and legs.",
+          "Punch upward in a vertical arc.",
+          "Return to guard immediately."
+        ]
+      },
+      jabCross: {
+        title: "Jab–Cross Combo",
+        gif: "https://media.giphy.com/media/3o7btZHL0Yqj6nNn5e/giphy.gif",
+        steps: [
+          "Throw a quick jab with lead hand.",
+          "Snap back and immediately throw cross.",
+          "Rotate hips and rear foot for power.",
+          "Reset to guard quickly."
+        ]
+      },
+      leadHook: {
+        title: "Lead Hook",
+        gif: "https://media.giphy.com/media/xThtamRMbIW5GdfpEY/giphy.gif",
+        steps: [
+          "From guard, rotate lead foot slightly inward.",
+          "Bend elbow at 90 degrees.",
+          "Swing lead fist horizontally across face level.",
+          "Rotate hips and shoulder for power."
+        ]
+      },
+      bodyShot: {
+        title: "Body Shot",
+        gif: "https://media.giphy.com/media/xUA7bdpLxQhsSQdyog/giphy.gif",
+        steps: [
+          "Lower stance slightly for body level.",
+          "Step in with lead foot.",
+          "Throw a hook or straight punch to body.",
+          "Return to guard quickly before counter."
+        ]
+      },
+      rollCounter: {
+        title: "Roll + Counter",
+        gif: "https://media.giphy.com/media/3o7abGQa0QbYqV4A7K/giphy.gif",
+        steps: [
+          "Slip under incoming hook by rolling.",
+          "Bend knees and shift weight under the punch.",
+          "Explode upward with a counter punch.",
+          "Reset and maintain defense."
         ]
       }
     };
@@ -172,4 +215,3 @@
   </script>
 </body>
 </html>
-
