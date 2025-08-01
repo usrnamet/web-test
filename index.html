@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Boxing Moves</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #111;
+      color: #fff;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    .move-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      max-width: 600px;
+      margin: 20px auto;
+    }
+
+    .move-button {
+      padding: 15px;
+      background-color: #222;
+      border: 2px solid #444;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .move-button:hover {
+      background-color: #333;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      background: rgba(0, 0, 0, 0.8);
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+
+    .modal-content {
+      background: #1c1c1c;
+      padding: 20px;
+      border-radius: 12px;
+      width: 90%;
+      max-width: 800px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .modal-content img {
+      max-width: 300px;
+      border-radius: 8px;
+    }
+
+    .steps {
+      flex: 1;
+    }
+
+    .steps h2 {
+      margin-top: 0;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-size: 30px;
+      cursor: pointer;
+      color: white;
+    }
+
+    @media (max-width: 600px) {
+      .modal-content {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .modal-content img {
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Boxing Moves</h1>
+  <div class="move-list">
+    <div class="move-button" onclick="openModal('jab')">Jab</div>
+    <div class="move-button" onclick="openModal('cross')">Cross</div>
+    <div class="move-button" onclick="openModal('uppercut')">Uppercut</div>
+    <!-- Add more moves here -->
+  </div>
+
+  <!-- Modal -->
+  <div class="modal" id="moveModal">
+    <span class="close-btn" onclick="closeModal()">&times;</span>
+    <div class="modal-content">
+      <img id="moveGif" src="" alt="Boxing Move GIF">
+      <div class="steps">
+        <h2 id="moveTitle"></h2>
+        <ol id="moveSteps"></ol>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const moves = {
+      jab: {
+        title: "Jab",
+        gif: "https://media.giphy.com/media/Sa6l04p5kFq4U/giphy.gif",
+        steps: [
+          "Stand in boxing stance with hands up.",
+          "Extend lead hand straight out.",
+          "Snap your hand back quickly.",
+          "Keep rear hand protecting your chin."
+        ]
+      },
+      cross: {
+        title: "Cross",
+        gif: "https://media.giphy.com/media/3o7TKxyZ2XvNhZ9ZyY/giphy.gif",
+        steps: [
+          "Pivot your rear foot and rotate your hips.",
+          "Throw your rear hand straight forward.",
+          "Extend fully while keeping your lead hand up.",
+          "Snap back to stance."
+        ]
+      },
+      uppercut: {
+        title: "Uppercut",
+        gif: "https://media.giphy.com/media/8K0xBd8MG1Gbm/giphy.gif",
+        steps: [
+          "Bend knees slightly and drop rear hand.",
+          "Explode upward with rear fist.",
+          "Aim the punch at an upward angle.",
+          "Return to guard quickly."
+        ]
+      }
+    };
+
+    function openModal(moveKey) {
+      const move = moves[moveKey];
+      document.getElementById("moveTitle").textContent = move.title;
+      document.getElementById("moveGif").src = move.gif;
+
+      const stepsEl = document.getElementById("moveSteps");
+      stepsEl.innerHTML = "";
+      move.steps.forEach(step => {
+        const li = document.createElement("li");
+        li.textContent = step;
+        stepsEl.appendChild(li);
+      });
+
+      document.getElementById("moveModal").style.display = "flex";
+    }
+
+    function closeModal() {
+      document.getElementById("moveModal").style.display = "none";
+    }
+  </script>
+</body>
+</html>
+
